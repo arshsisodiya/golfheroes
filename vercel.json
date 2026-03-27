@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "api/server.js", "use": "@vercel/node" }
+  ],
+  "routes": [
+    { "src": "/api/(.*)", "dest": "/api/server.js" }
+  ],
+  "installCommand": "cd backend && npm install",
+  "functions": {
+    "api/server.js": {
+      "runtime": "nodejs18.x",
+      "maxDuration": 10
+    }
+  }
+}
