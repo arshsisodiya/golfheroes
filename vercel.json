@@ -7,10 +7,5 @@
     { "src": "/api/(.*)", "dest": "/api/server.js" }
   ],
   "installCommand": "cd backend && npm install",
-  "functions": {
-    "api/server.js": {
-      "runtime": "nodejs18.x",
-      "maxDuration": 10
-    }
-  }
+  
 }
