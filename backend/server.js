@@ -15,6 +15,29 @@ const db = require('./db');
 const logger = require('./utils/logger');
 
 const app = express();
+const publicDir = path.join(__dirname, '..', 'public');
+let dbInitPromise;
+
+function ensureDbInitialized() {
+	if (!dbInitPromise) {
+		dbInitPromise = db.init().catch((error) => {
+			logger.warn('Database initialization failed.', { message: error.message, stack: error.stack });
+			dbInitPromise = null;
+			throw error;
+		});
+	}
+
+	return dbInitPromise;
+}
+
+app.use(async (req, res, next) => {
+	try {
+		await ensureDbInitialized();
+		next();
+	} catch (error) {
+		next(error);
+	}
+});
 
 app.use(cors({ origin: process.env.FRONTEND_URL || 'http://localhost:5173', credentials: true }));
 
@@ -45,9 +68,7 @@ const MAX_PORT = START_PORT + 50;
 function tryListen(port) {
 	const server = app.listen(port, () => {
 		logger.info(`Server running on port ${port}`);
-		db.init().catch((error) => {
-			logger.warn('Database initialization failed after server start.', { message: error.message, stack: error.stack });
-		});
+		ensureDbInitialized().catch(() => {});
 	});
 
 	server.on('error', (err) => {
@@ -66,6 +87,14 @@ function tryListen(port) {
 	});
 
 }
+
+app.get(/^\/(?!api(?:\/|$)).*/, (req, res, next) => {
+	res.sendFile(path.join(publicDir, 'index.html'), (error) => {
+		if (error) {
+			next(error);
+		}
+	});
+});
 
 // Start listening only when this file is the main module
 if (require.main === module) {
