@@ -31,33 +31,62 @@ Built for the **Digital Heroes Full-Stack Trainee Selection Process**.
 ## 🚀 Quick Start
 
 ### Prerequisites
-- Node.js 18+
+- Node.js 18+ (recommended)
 - npm 9+
 
-### 1. Install dependencies
+### Install dependencies
+
+Install repository root (installs workspace helpers) then install backend and frontend packages individually:
 
 ```bash
-# Install root, backend, and frontend deps
 npm install
-npm run install:all
+cd backend && npm install
+cd ../frontend && npm install
+cd ..
 ```
 
-### 2. Configure environment
+### Configure environment
+
+Copy the backend example and edit as needed (SMTP, Supabase keys, JWT secret):
 
 ```bash
 cp backend/.env.example backend/.env
-# Edit backend/.env if needed (defaults work for local dev)
 ```
 
-### 3. Run development servers
+### Run servers (development)
+
+Start backend API (default port 3001):
 
 ```bash
+cd backend
 npm run dev
+# or: node server.js
 ```
 
-This starts:
-- **Backend API** → http://localhost:3001
-- **Frontend** → http://localhost:5173
+Start frontend dev server (Vite) from the `frontend` folder:
+
+```bash
+cd frontend
+npm run dev
+# or run directly with npx: npx vite --port 5173
+```
+
+Frontend default URL: http://localhost:5173 — Backend default URL: http://localhost:3001
+
+Change the frontend port by setting the `PORT` env var or passing `--port` to Vite. Examples:
+
+PowerShell:
+```powershell
+$env:PORT = 5175; npm run dev
+```
+Linux / macOS:
+```bash
+PORT=5175 npm run dev
+```
+Or directly:
+```bash
+npx vite --port 5175
+```
 
 ---
 
@@ -223,6 +252,12 @@ cd frontend && npm run build
 ### Backend hosting
 - Railway, Render, or Fly.io for the Express API
 - Set all `.env` variables in your hosting dashboard
+
+### Payments (Razorpay)
+
+- This project includes a Razorpay integration for subscription payments. The backend helper is in `backend/utils/razorpay.js` and the subscriptions table defaults to provider `razorpay` and currency `INR`.
+- Required env vars for production: set `RAZORPAY_KEY_ID` and `RAZORPAY_KEY_SECRET` in `backend/.env`.
+- Local dev can use Razorpay test keys. Ensure webhook endpoints (if used) are configured in your Razorpay dashboard and your hosting environment supports HTTPS for webhook verification.
 
 ---
 
