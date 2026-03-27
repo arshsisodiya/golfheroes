@@ -107,7 +107,7 @@ export default function AdminCharities() {
   };
 
   return (
-    <div style={{ padding: '32px 28px', maxWidth: 1100 }}>
+    <div className="page-shell-wide">
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 24, flexWrap: 'wrap', gap: 12 }}>
         <div>
           <h1 style={{ fontFamily: 'var(--font-display)', fontSize: '2rem', fontWeight: 800, marginBottom: 4 }}>Charities</h1>

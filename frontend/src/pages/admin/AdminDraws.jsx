@@ -58,7 +58,7 @@ export default function AdminDraws() {
   };
 
   return (
-    <div style={{ padding: '32px 28px', maxWidth: 1000 }}>
+    <div className="page-shell-wide">
       <div style={{ marginBottom: 28 }}>
         <h1 style={{ fontFamily: 'var(--font-display)', fontSize: '2rem', fontWeight: 800, marginBottom: 8 }}>Draw Engine</h1>
         <p className="text-muted" style={{ fontSize: '0.88rem' }}>Simulate or publish monthly prize draws. Always simulate first to preview results.</p>

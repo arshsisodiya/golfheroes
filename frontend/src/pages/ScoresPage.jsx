@@ -50,7 +50,7 @@ export default function ScoresPage() {
   };
 
   if (!isActive) return (
-    <div style={{ padding: '48px 28px', maxWidth: 600 }}>
+    <div className="page-shell-compact">
       <h1 style={{ fontFamily: 'var(--font-display)', fontSize: '2rem', marginBottom: 16 }}>My Scores</h1>
       <div className="card" style={{ textAlign: 'center', padding: 40 }}>
         <div style={{ fontSize: '2.5rem', marginBottom: 16 }}>🔒</div>
@@ -61,7 +61,7 @@ export default function ScoresPage() {
   );
 
   return (
-    <div style={{ padding: '32px 28px', maxWidth: 900 }}>
+    <div className="page-shell">
       <div style={{ marginBottom: 28 }}>
         <h1 style={{ fontFamily: 'var(--font-display)', fontSize: '2rem', marginBottom: 8 }}>My Scores</h1>
         <p className="text-muted" style={{ fontSize: '0.88rem' }}>Enter your Stableford scores (1–45). Only your latest 5 are kept — oldest is replaced automatically.</p>

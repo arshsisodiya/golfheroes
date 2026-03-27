@@ -61,8 +61,32 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 input, select, textarea { font-family: inherit; }
 
 /* Layout */
-.container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
-.container-sm { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+.container { max-width: 1320px; margin: 0 auto; padding: 0 24px; }
+.container-sm { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+.page-shell {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 32px 28px;
+}
+.page-shell-wide {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 32px 28px;
+}
+.page-shell-narrow {
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 32px 28px;
+}
+.page-shell-compact {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 48px 28px;
+}
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 { font-family: var(--font-display); font-weight: 700; line-height: 1.15; }
@@ -173,6 +197,12 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-display); font-weight: 700; lin
 .show-desktop { display: block !important; }
 
 @media (max-width: 768px) {
+  .page-shell,
+  .page-shell-wide,
+  .page-shell-narrow,
+  .page-shell-compact {
+    padding: 24px 20px;
+  }
   .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
   .hide-mobile { display: none !important; }
   .show-mobile { display: flex !important; }
@@ -181,6 +211,13 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-display); font-weight: 700; lin
 @media (min-width: 769px) and (max-width: 1024px) {
   .grid-3 { grid-template-columns: repeat(2, 1fr); }
   .grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1440px) {
+  .container { max-width: 1380px; }
+  .page-shell { max-width: 1320px; padding-left: 36px; padding-right: 36px; }
+  .page-shell-wide { max-width: 1460px; padding-left: 40px; padding-right: 40px; }
+  .page-shell-narrow { max-width: 1080px; padding-left: 36px; padding-right: 36px; }
+  .page-shell-compact { max-width: 780px; padding-left: 36px; padding-right: 36px; }
 }
 
 /* Toast */

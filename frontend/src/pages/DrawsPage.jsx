@@ -17,7 +17,7 @@ export default function DrawsPage() {
   }, [isActive]);
 
   return (
-    <div style={{ padding: '32px 28px', maxWidth: 1000 }}>
+    <div className="page-shell">
       <div style={{ marginBottom: 28 }}>
         <h1 style={{ fontFamily: 'var(--font-display)', fontSize: '2rem', marginBottom: 8 }}>Prize Draws</h1>
         <p className="text-muted" style={{ fontSize: '0.88rem' }}>Monthly draws. Match 3, 4 or all 5 numbers with your Stableford scores to win.</p>

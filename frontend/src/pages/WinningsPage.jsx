@@ -93,7 +93,7 @@ export default function WinningsPage() {
     .reduce((sum, winner) => sum + Number(winner.amount || 0), 0);
 
   return (
-    <div style={{ padding: '32px 28px', maxWidth: 900 }}>
+    <div className="page-shell">
       <div style={{ marginBottom: 28 }}>
         <h1 style={{ fontFamily: 'var(--font-display)', fontSize: '2rem', marginBottom: 8 }}>My Winnings</h1>
         <p className="text-muted" style={{ fontSize: '0.88rem' }}>Track your prize history, submit proof, and follow payout status.</p>

@@ -70,7 +70,7 @@ export default function SettingsPage() {
     : `${formatCurrency(monthlyPlan.amount)}/month`;
 
   return (
-    <div style={{ padding: '32px 28px', maxWidth: 720 }}>
+    <div className="page-shell-narrow">
       <div style={{ marginBottom: 28 }}>
         <h1 style={{ fontFamily: 'var(--font-display)', fontSize: '2rem', marginBottom: 8 }}>Settings</h1>
         <p className="text-muted" style={{ fontSize: '0.88rem' }}>Manage your profile, subscription, and charity preferences.</p>

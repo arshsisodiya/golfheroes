@@ -60,7 +60,7 @@ export default function AdminWinners() {
   const totalAwarded = winners.reduce((sum, winner) => sum + Number(winner.amount || 0), 0);
 
   return (
-    <div style={{ padding: '32px 28px', maxWidth: 1100 }}>
+    <div className="page-shell-wide">
       <div style={{ marginBottom: 24 }}>
         <h1 style={{ fontFamily: 'var(--font-display)', fontSize: '2rem', fontWeight: 800, marginBottom: 8 }}>Winners and Payouts</h1>
         <p className="text-muted" style={{ fontSize: '0.88rem' }}>Review proof submissions, approve winners, and track payouts.</p>

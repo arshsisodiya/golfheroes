@@ -85,7 +85,7 @@ export default function AdminUsers() {
   };
 
   return (
-    <div style={{ padding: '32px 28px', maxWidth: 1100 }}>
+    <div className="page-shell-wide">
       <div style={{ marginBottom: 24 }}>
         <h1 style={{ fontFamily: 'var(--font-display)', fontSize: '2rem', fontWeight: 800, marginBottom: 8 }}>Users</h1>
         <p className="text-muted" style={{ fontSize: '0.88rem' }}>Manage subscriber accounts, subscription details, and score history.</p>

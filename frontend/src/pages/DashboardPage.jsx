@@ -59,7 +59,7 @@ export default function DashboardPage() {
   const completedSteps = nextSteps.filter((step) => step.done).length;
 
   return (
-    <div style={{ padding: '32px 28px', maxWidth: 1100 }}>
+    <div className="page-shell-wide">
       <div style={{ marginBottom: 32 }}>
         <div style={{ fontSize: '0.8rem', color: 'var(--text-3)', marginBottom: 4 }}>{greeting}</div>
         <h1 style={{ fontFamily: 'var(--font-display)', fontSize: '2rem', fontWeight: 800, marginBottom: 8 }}>{user?.name}</h1>

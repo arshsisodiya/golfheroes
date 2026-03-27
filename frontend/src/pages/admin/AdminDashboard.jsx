@@ -21,7 +21,7 @@ export default function AdminDashboard() {
   }, []);
 
   return (
-    <div style={{ padding: '32px 28px', maxWidth: 1100 }}>
+    <div className="page-shell-wide">
       <div style={{ marginBottom: 28 }}>
         <div style={{ fontSize: '0.78rem', color: 'var(--amber)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 6 }}>Admin Panel</div>
         <h1 style={{ fontFamily: 'var(--font-display)', fontSize: '2rem', fontWeight: 800 }}>Platform Overview</h1>
