@@ -29,7 +29,7 @@ coverage/
 /.serverless
 /.firebase
 Thumbs.db
-desktop.ininode_modules/
+desktop.ini
 dist/
 .env
 *.local
