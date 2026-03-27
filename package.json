@@ -1,0 +1,17 @@
+{
+  "name": "golf-heroes-platform",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "install:all": "cd backend && npm install && cd ../frontend && npm install",
+    "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm run dev\" --names \"API,UI\" --prefix-colors \"yellow,cyan\"",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "start": "cd backend && npm start",
+    "build": "cd frontend && npm run build"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "nodemon": "^3.0.3"
+  }
+}

@@ -34,3 +34,5 @@ dist/
 .env
 *.local
 .DS_Store
+PRD.txt
+document.pdf
