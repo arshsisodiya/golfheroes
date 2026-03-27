@@ -64,27 +64,32 @@ function tryListen(port) {
 			process.exit(1);
 		}
 	});
+
 }
 
-tryListen(START_PORT);
+// Start listening only when this file is the main module
+if (require.main === module) {
+    tryListen(START_PORT);
+}
 
 // Express error-handling middleware (log and respond)
 app.use((err, req, res, next) => {
-	try {
-		const meta = {
-			method: req.method,
-			url: req.originalUrl,
-			ip: req.ip,
-			body: req.body,
-			params: req.params,
-			query: req.query,
-		};
-		logger.error(err.message || 'Unhandled error', { ...meta, stack: err.stack });
-	} catch (logErr) {
-		logger.error('Failed to log error', { message: logErr.message });
-	}
-	if (res.headersSent) return next(err);
-	res.status(err.status || 500).json({ error: err.message || 'Internal Server Error' });
+    try {
+        const meta = {
+            method: req.method,
+            url: req.originalUrl,
+            ip: req.ip,
+            body: req.body,
+            params: req.params,
+            query: req.query,
+        };
+        logger.error(err.message || 'Unhandled error', { ...meta, stack: err.stack });
+    } catch (logErr) {
+        logger.error('Failed to log error', { message: logErr.message });
+    }
+
+    if (res.headersSent) return next(err);
+    res.status(err.status || 500).json({ error: err.message || 'Internal Server Error' });
 });
 
 process.on('unhandledRejection', (reason) => {
