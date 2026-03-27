@@ -27,16 +27,18 @@ function format(level, message, meta) {
 }
 
 function write(level, message, meta) {
-  ensureLogDir();
   const line = format(level, message, meta);
-  try {
-    fs.appendFileSync(LOG_FILE, line, 'utf8');
-  } catch (e) {
-    // if file write fails, still print to console
-    // eslint-disable-next-line no-console
-    console.error('Failed to write log file:', e);
+  
+  // Skip file logging in Vercel/Serverless (read-only filesystem)
+  if (!process.env.VERCEL) {
+    ensureLogDir();
+    try {
+      fs.appendFileSync(LOG_FILE, line, 'utf8');
+    } catch (e) {
+      // if file write fails, still print to console
+    }
   }
-  // eslint-disable-next-line no-console
+
   if (level === 'error') console.error(line.trim());
   else if (level === 'warn') console.warn(line.trim());
   else console.log(line.trim());
